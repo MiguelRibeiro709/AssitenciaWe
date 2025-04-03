@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistência Técnica em Refrigeração</title>
+    <style>
+        /* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Cabeçalho */
+header {
+    background: #0077b6;
+    color: white;
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contato-header p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+/* Navegação */
+nav {
+    background: #023e8a;
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Banner */
+.banner {
+    background: url('banner.png') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* Botão */
+.btn {
+    display: inline-block;
+    background: #0096c7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0077b6;
+}
+
+/* Serviços */
+.services {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.services h2, .about h2, .contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #023e8a;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item i {
+    font-size: 3rem;
+    color: #0096c7;
+    margin-bottom: 15px;
+}
+
+/* Contato */
+.contact {
+    padding: 60px 0;
+}
+
+.contact-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #023e8a;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+/* Rodapé */
+footer {
+    background: #023e8a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social {
+    margin-top: 15px;
+}
+
+.social a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .banner h2 {
+        font-size: 2rem;
+    }
+}
+/* Seção: Tipos de Refrigeradores */
+.appliances {
+    padding: 60px 0;
+    background: white;
+}
+
+.appliances h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #023e8a;
+}
+
+.appliance-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.appliance-item:hover {
+    transform: translateY(-5px);
+}
+
+.appliance-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.appliance-info {
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.appliance-info h3 {
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.appliance-info p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.btn-small {
+    display: inline-block;
+    background: #0096c7;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-small:hover {
+    background: #0077b6;
+}
+/* Estilo específico para o ícone de bebedouro (opcional) */
+.fa-water {
+    color: #00b4d8; /* Azul água */
+}
+.whatsapp-btn-float {
+   position: fixed;
+   bottom: 25px;
+   right: 25px;
+   width: 60px;
+   height: 60px;
+   background: #25D366;
+   border-radius: 50%;
+   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+   z-index: 1000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: all 0.3s ease;
+}
+
+.whatsapp-btn-float:hover {
+   background: #128C7E;
+   transform: scale(1.1);
+   box-shadow: 0 6px 16px rgba(18, 140, 126, 0.4);
+}
+
+.whatsapp-icon-container {
+   width: 30px;
+   height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.whatsapp-icon {
+    width: 100%;  
+    height: 100%;
+    color: white;
+}
+.whatsapp-service-btn {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.whatsapp-service-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+.whatsapp-service-btn i {
+    font-size: 1.2rem;
+}
+    </style>
+</head>
+<body>
+   
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-snowflake"></i> Assistência técnica W.E </h1>
+                <p>Assistência Técnica Especializada Em Conserto De Refrigeradores</p>
+            </div>
+            <div class="contato-header">
+                <p><i class="fas fa-phone"></i> (31) 99955-2169</p>
+                <p><i class="fas fa-map-marker-alt"></i> Belo Horizonte - MG</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tipos">Serviços</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner Principal -->
+    <section id="home" class="banner">
+        <div class="container">
+            <h2>Serviços Profissionais para Refrigeração</h2>
+            <p>Conserto de geladeiras, freezers, frigobares e mais!</p>
+            <a href="#contato" class="btn">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <!-- Seção: Tipos de Refrigeradores -->
+<section id="tipos" class="appliances">
+    <div class="container">
+        <h2>Nossos serviços</h2>
+        <div class="grid">
+          <!-- Geladeira -->
+<div class="appliance-item">
+    <img src="geladeira.png" alt="Geladeira">
+    <div class="appliance-info">
+        <h3>Geladeiras</h3>
+        <p>Conserto de portas, vazamentos, troca de gás e mais.</p>
+        <button class="btn-small whatsapp-service-btn" data-service="Geladeira" data-problems="Portas, Vazamentos, Troca de gás, Problemas elétricos">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+
+<!-- Máquina de Lavar -->
+<div class="appliance-item">
+    <img src="maquina de lavar.png" alt="Máquina de Lavar">
+    <div class="appliance-info">
+        <h3>Máquinas de Lavar</h3>
+        <p>Reparo em motores, vazamentos, problemas elétricos e centrífugas.</p>
+        <button class="btn-small whatsapp-service-btn" 
+                data-service="Máquina de Lavar" 
+                data-problems="Não centrifuga, Vazamentos, Não drena, Barulhos estranhos">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+<!-- Bebedouro -->
+<div class="appliance-item">
+    <img src="bebedouro.png" alt="Bebedouro">
+    <div class="appliance-info">
+        <h3>Bebedouros</h3>
+        <p>Limpeza, troca de filtros e reparos em geral.</p>
+        <button class="btn-small whatsapp-service-btn" data-service="Bebedouro" data-problems="Troca de filtro, Vazamentos, Problemas de refrigeração, Limpeza profissional">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+<!-- Freezer -->
+<div class="appliance-item">
+    <img src="freezer.png" alt="Freezer">
+    <div class="appliance-info">
+        <h3>Freezers</h3>
+        <p>Reparo de sistemas de congelamento e degelo.</p>
+        <button class="btn-small whatsapp-service-btn" 
+                data-service="Freezer" 
+                data-problems="Não congela, Gelo excessivo, Barulhos estranhos, Porta não fecha">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+<!-- Frigobar -->
+<div class="appliance-item">
+    <img src="frigobar.png" alt="Frigobar">
+    <div class="appliance-info">
+        <h3>Frigobares</h3>
+        <p>Conserto especializado para modelos residenciais e hoteleiros.</p>
+        <button class="btn-small whatsapp-service-btn" data-service="Frigobar" data-problems="Não resfria, Barulhos anormais, Descongelamento, Problemas elétricos">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+
+<!-- Câmara Frigorífica -->
+<div class="appliance-item">
+    <img src="camera frigorifica.png" alt="Câmara Frigorífica">
+    <div class="appliance-info">
+        <h3>Câmaras Frigoríficas</h3>
+        <p>Manutenção industrial para comércios e restaurantes.</p>
+        <button class="btn-small whatsapp-service-btn" data-service="Câmara Frigorífica" data-problems="Falta de refrigeração, Vazamentos, Problemas no termostato, Degelo inadequado">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+<!-- Máquina Lava e Seca -->
+<div class="appliance-item">
+    <img src="lava e seca.png" alt="Máquina Lava e Seca">
+    <div class="appliance-info">
+        <h3>Lava e Seca</h3>
+        <p>Reparo em sistemas de lavagem, secagem e vazamentos.</p>
+        <button class="btn-small whatsapp-service-btn" 
+                data-service="Lava e Seca" 
+                data-problems="Não seca, Vazamentos, Não centrifuga, Erros no painel">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+
+<!-- Lava-Louças -->
+<div class="appliance-item">
+    <img src="Lava louças.png" alt="Lava-Louças">
+    <div class="appliance-info">
+        <h3>Lava-Louças</h3>
+        <p>Conserto de vazamentos, bomba de água e problemas elétricos.</p>
+        <button class="btn-small whatsapp-service-btn" 
+                data-service="Lava-Louças" 
+                data-problems="Não drena, Vazamentos, Pratos não ficam limpos, Barulhos anormais">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+
+<!-- Televisão -->
+<div class="appliance-item">
+    <img src="atelevisao.png" alt="Televisão">
+    <div class="appliance-info">
+        <h3>Televisões</h3>
+        <p>Reparo em telas, fontes, conectores e sistemas de imagem/som.</p>
+        <button class="btn-small whatsapp-service-btn" 
+                data-service="Televisão" 
+                data-problems="Tela quebrada, Sem imagem, Sem som, Problemas de conexão">
+            <i class="fab fa-whatsapp"></i> Solicitar Serviço
+        </button>
+    </div>
+</div>
+</section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma empresa especializada em assistência técnica para refrigeradores, oferecendo soluções rápidas e eficientes no conforto da sua casa. Atendemos em domicílio em toda a região de Belo Horizonte, garantindo praticidade e comodidade para nossos clientes.
+
+                Nossa equipe de técnicos qualificados está pronta para diagnosticar e solucionar qualquer problema com profissionalismo e transparência. Utilizamos peças originais e seguimos as melhores práticas do setor para assegurar o desempenho ideal do seu equipamento.
+                
+                Seja para manutenção preventiva ou reparos emergenciais, estamos aqui para manter seu refrigerador funcionando perfeitamente.
+                
+                Confie em quem entende do assunto e leva o melhor atendimento até você!</p>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2>Contato</h2>
+            <div class="grid">
+                <div class="contact-info">
+                    <h3><i class="fas fa-phone"></i> Telefone</h3>
+                    <p>(31) 99955-2169</p>
+                    <h3><i class="fas fa-envelope"></i> E-mail</h3>
+                    <p>Assistenciatecnicawe@gmai.com</p>
+                    <h3><i class="fas fa-map-marker-alt"></i> Atendimento</h3>
+                    <p>Atendemos nos domicilio de Belo Horizonte e Região </p>
+                </div>
+                <div class="contact-form">
+                    <form id="whatsappForm">
+                        <input type="text" id="nome" placeholder="Seu Nome" required>
+                        <input type="tel" id="telefone" placeholder="Seu WhatsApp" required>
+                        <textarea id="problema" placeholder="Descreva seu problema..." required></textarea>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <script>
+                document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const nome = document.getElementById('nome').value;
+                    const telefone = document.getElementById('telefone').value;
+                    const problema = document.getElementById('problema').value;
+                    
+                    const mensagem = `Olá, meu nome é ${nome}` +
+                                     ` e estou enfrentando o seguinte problema ${problema}` ;
+                                    
+                    
+                    window.open(`https://wa.me/5531999552169?text=${mensagem}`, '_blank');
+                });
+                </script>
+            </div>
+        </div>
+    </section>
+  <!-- Whatzapp -->
+<a href="https://wa.me/5531999552169?text=Olá,%20preciso%20de%20assistência%20técnica!" 
+class="whatsapp-btn-float" 
+target="_blank"
+aria-label="Fale conosco pelo WhatsApp">
+<div class="whatsapp-icon-container">
+   <svg viewBox="0 0 32 32" class="whatsapp-icon">
+      <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z" fill="currentColor"></path>
+   </svg>
+</div>
+</a>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Assistência técnica W.E - Todos os direitos reservados.</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+   <script>
+       // Menu fixo ao rolar
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) {
+        nav.style.position = 'fixed';
+        nav.style.width = '100%';
+        nav.style.top = '0';
+        nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        nav.style.position = 'relative';
+        nav.style.boxShadow = 'none';
+    }
+});
+
+// Smooth scroll para links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+// Efeito de zoom nas imagens dos refrigeradores
+document.querySelectorAll('.appliance-item img').forEach(img => {
+    img.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.transition = 'transform 0.3s';
+    });
+    img.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
+   </script>
+   <script>
+    document.querySelectorAll('.whatsapp-service-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Obtém o serviço específico do atributo data-service
+            const service = this.getAttribute('data-service');
+            
+            // Número do técnico (formato: 5531999552169)
+            const phoneNumber = '5531999552169';
+            
+            // Mensagem pré-formatada
+            const message =
+                            `Olá, gostaria de solicitar um serviço para ${service}` ;                          
+            // Redireciona para o WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        });
+    });
+    </script>
+</body>
+</html>
